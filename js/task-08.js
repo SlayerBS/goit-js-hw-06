@@ -13,6 +13,8 @@ function colorRandomRgb() {
 createBtn.addEventListener('click', createBoxes);
 deleteBtn.addEventListener('click', destroyBoxes);
 
+boxexRef.style.display = flex;
+
 function createBoxes() {
   const amount = Number(inputBtn.value);
   if (amount > 0) {
@@ -21,9 +23,14 @@ function createBoxes() {
     let size = 30;
     for (let i = 1; i <= amount; i += 1) {
       const divEl = document.createElement('div');
+      divEl.style.margin = 10 + 'px';
       divEl.style.width = size + 'px';
       divEl.style.height = size + 'px';
       divEl.style.backgroundColor = colorRandomRgb();
+      divEl.style.display = 'inline-flex';
+      divEl.style.boxShadow = '0px 3px 3px rgba(31, 30, 30, 0.75)';
+      //   divEl.textContent = i;
+
       boxexRef.append(divEl);
       size += 10;
     }
