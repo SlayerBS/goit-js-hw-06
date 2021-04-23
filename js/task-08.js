@@ -15,17 +15,19 @@ deleteBtn.addEventListener('click', destroyBoxes);
 
 function createBoxes() {
   const amount = Number(inputBtn.value);
-  console.log(typeof amount);
-  console.log('Нажали кнопку');
-  let size = 30;
-  for (let i = 1; i <= amount; i += 1) {
-    const divEl = document.createElement('div');
-    divEl.style.width = size + 'px';
-    divEl.style.height = size + 'px';
-    divEl.style.backgroundColor = colorRandomRgb();
-    boxexRef.append(divEl);
-    size += 10;
-  }
+  if (amount > 0) {
+    console.log(typeof amount);
+    console.log('Нажали кнопку');
+    let size = 30;
+    for (let i = 1; i <= amount; i += 1) {
+      const divEl = document.createElement('div');
+      divEl.style.width = size + 'px';
+      divEl.style.height = size + 'px';
+      divEl.style.backgroundColor = colorRandomRgb();
+      boxexRef.append(divEl);
+      size += 10;
+    }
+  } else alert('Введите число больше 0');
 }
 
 function destroyBoxes() {
