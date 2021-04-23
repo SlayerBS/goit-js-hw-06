@@ -1,22 +1,34 @@
-// Напиши скрипт создания и очистки коллекции элементов.
-//Пользователь вводит количество элементов в input и нажимает кнопку Создать, после чего рендерится коллекция.При нажатии на кнопку Очистить, коллекция элементов очищается.
+const inputBtn = document.querySelector('#controls').firstElementChild;
+const createBtn = document.querySelector('button:nth-of-type(1)');
+const deleteBtn = document.querySelector('button:nth-of-type(2)');
+const boxexRef = document.querySelector('#boxes');
 
-// Создай функцию createBoxes(amount), которая принимает 1 параметр amount - число.
-//Функция создает столько div, сколько указано в amount и добавляет их в div#boxes.
+function colorRandomRgb() {
+  let x = Math.floor(Math.random() * (255 - 0 + 1)) + 0;
+  let y = Math.floor(Math.random() * (255 - 0 + 1)) + 0;
+  let z = Math.floor(Math.random() * (255 - 0 + 1)) + 0;
+  return `rgb(${x}, ${y}, ${z})`;
+}
 
-// Каждый созданный div:
+createBtn.addEventListener('click', createBoxes);
+deleteBtn.addEventListener('click', destroyBoxes);
 
-// Имеет случайный rgb цвет фона
-// Размеры самого первого div - 30px на 30px
-// Каждый следующий div после первого, должен быть шире и выше предыдущего на 10px
-// Создай функцию destroyBoxes(), которая очищает div#boxes.
+function createBoxes() {
+  const amount = Number(inputBtn.value);
+  console.log(typeof amount);
+  console.log('Нажали кнопку');
+  let size = 30;
+  for (let i = 1; i <= amount; i += 1) {
+    const divEl = document.createElement('div');
+    divEl.style.width = size + 'px';
+    divEl.style.height = size + 'px';
+    divEl.style.backgroundColor = colorRandomRgb();
+    boxexRef.append(divEl);
+    size += 10;
+  }
+}
 
-// const createBtn = document.querySelector('button[data-action="render"]');
-// const deleteBtn = document.querySelector('button[data-action="destroy"]');
-
-// console.log(createBtn);
-// console.log(deleteBtn);
-
-// createBtn.addEventListener('input', createBoxes);
-
-// function createBoxes(amount)
+function destroyBoxes() {
+  boxexRef.innerHTML = '';
+  inputBtn.value = 0;
+}
