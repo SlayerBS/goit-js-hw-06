@@ -26,7 +26,7 @@ function createBoxes() {
       divEl.style.height = size + 'px';
       divEl.style.backgroundColor = colorRandomRgb();
       divEl.style.display = 'inline-flex';
-      divEl.style.boxShadow = '0px 3px 3px rgba(31, 30, 30, 0.75)';
+      divEl.style.boxShadow = '0px 5px 5px rgba(31, 30, 30, 0.75)';
       //   divEl.textContent = i;
 
       boxexRef.append(divEl);
