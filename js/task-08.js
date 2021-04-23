@@ -18,8 +18,6 @@ boxexRef.style.display = flex;
 function createBoxes() {
   const amount = Number(inputBtn.value);
   if (amount > 0) {
-    console.log(typeof amount);
-    console.log('Нажали кнопку');
     let size = 30;
     for (let i = 1; i <= amount; i += 1) {
       const divEl = document.createElement('div');
