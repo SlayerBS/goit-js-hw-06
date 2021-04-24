@@ -19,6 +19,7 @@ function createBoxes() {
   const amount = Number(inputBtn.value);
   if (amount > 0) {
     let size = 30;
+    const divArray = [];
     for (let i = 1; i <= amount; i += 1) {
       const divEl = document.createElement('div');
       divEl.style.margin = 10 + 'px';
@@ -29,9 +30,10 @@ function createBoxes() {
       divEl.style.boxShadow = '0px 5px 5px rgba(31, 30, 30, 0.75)';
       //   divEl.textContent = i;
 
-      boxexRef.append(divEl);
+      divArray.push(divEl);
       size += 10;
     }
+    boxexRef.append(...divArray);
   } else alert('Введите число больше 0');
 }
 
